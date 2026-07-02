@@ -1,44 +1,33 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
-<meta charset="UTF-8">
-
-<meta
-name="viewport"
-content="width=device-width, initial-scale=1.0">
-
-<title>Gestus</title>
-
-<link
-rel="stylesheet"
-href="style.css">
-
-<script type="importmap">
-{
-  "imports": {
-    "three": "https://unpkg.com/three@0.179.1/build/three.module.js",
-    "three/addons/": "https://unpkg.com/three@0.179.1/examples/jsm/"
-  }
-}
-</script>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestus - RASTRO</title>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js"></script>
+    <style>
+        body { margin: 0; }
+        model-viewer { width: 100vw; height: 100vh; background: #fafafa; }
+        #controls { position: absolute; top: 20px; left: 20px; z-index: 100; }
+        button { padding: 15px; font-size: 16px; cursor: pointer; }
+    </style>
 </head>
-
 <body>
 
-<div id="info">
+    <div id="controls">
+        <button id="btn-record">Iniciar Rastro</button>
+        <button id="btn-export" style="display:none;">Descargar JSON</button>
+    </div>
 
-Gestus 0.1
+    <model-viewer 
+        id="main-viewer"
+        src="gestus.glb" 
+        ios-src="gestus.usdz" 
+        ar 
+        ar-modes="quick-look webxr scene-viewer" 
+        camera-controls>
+    </model-viewer>
 
-</div>
-
-<script
-type="module"
-src="app.js">
-</script>
-
+    <script src="app.js" type="module"></script>
 </body>
-
 </html>
